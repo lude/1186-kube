@@ -37,7 +37,7 @@ spec:
         existingClaim: plex-config
         size: 50Gi
       data:
-        accessModeds ReadWriteOnce
+        accessMode: ReadWriteOnce
         claimName: plex-data
         enabled: true
         existingClaim: plex-data
