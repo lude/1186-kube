@@ -50,7 +50,7 @@ spec:
           mountPath: /etc/cont-init.d/42-pkcs-mangler
           name: 42-pkcs-mangler
           subPath: 42-pkcs-mangler
-    claimToken: "claim-1KFiTuoZ8LznD9XrzszU"
+    claimToken: claim-dCnkJZAxzB4UiwVMPm3S
     deploymentAnnotations: {}
     fullnameOverride: ""
     hostNetwork: false
