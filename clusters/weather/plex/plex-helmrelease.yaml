@@ -12,9 +12,9 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: k8s-at-home
+      targetNamespace: plex
   install:
     createNamespace: true
-    targetNamespace: plex
   interval: 1m0s
   values:
     affinity: {}
