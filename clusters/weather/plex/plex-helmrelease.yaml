@@ -9,8 +9,9 @@ spec:
     spec:
       chart: plex
       reconcileStrategy: ChartVersion
-      targetNamespace: plex
-      createNamespace: true
+      install:
+        targetNamespace: plex
+        createNamespace: true
       sourceRef:
         kind: HelmRepository
         name: k8s-at-home
