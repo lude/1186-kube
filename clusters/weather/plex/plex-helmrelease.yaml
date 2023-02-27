@@ -17,7 +17,6 @@ spec:
     createNamespace: true
   interval: 1m0s
   values:
-    affinity: {}
     claimToken: claim-MzGi5aUByXTzC7GU3YMf
     env:
       CLAIM_TOKEN: claim-MzGi5aUByXTzC7GU3YMf
@@ -28,7 +27,6 @@ spec:
       pullPolicy: IfNotPresent
       repository: plexinc/pms-docker
       tag: 1.31.1.6733-bc0674160
-    imagePullSecrets: []
     nodeSelector:
       kubernetes.io/hostname: avalanche
     persistence:
