@@ -1,0 +1,65 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: unifi
+  namespace: flux-system
+spec:
+  chart:
+    spec:
+      chart: unifi
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+  targetNamespace: unifi
+  install:
+    createNamespace: true
+  interval: 1m0s
+  values:
+    GID: 999
+    UID: 999
+    customCert:
+      enabled: false
+    extraJvmOpts: []
+    image:
+      pullPolicy: IfNotPresent
+      repository: jacobalberty/unifi
+      tag: v7.3.83
+    jvmInitHeapSize: null
+    jvmMaxHeapSize: 1024M
+    livenessProbe:
+      enabled: true
+      failureThreshold: 3
+      initialDelaySeconds: 30
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 1
+    logging:
+      promtail:
+        enabled: true
+        image:
+          pullPolicy: IfNotPresent
+          repository: grafana/promtail
+          tag: 2.1.0
+        loki:
+          url: http://loki.grafana:3100/loki/api/v1/push
+    mongodb:
+      enabled: false
+    nodeSelector:
+      kubernetes.io/hostname: blizzard
+    persistence:
+      data:
+        accessMode: ReadWriteOnce
+        claimName: unifi-data
+        enabled: true
+        existingClaim: unifi-data
+        size: 50Gi
+    readinessProbe:
+      enabled: true
+      failureThreshold: 3
+      initialDelaySeconds: 15
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 1
+    runAsRoot: false
