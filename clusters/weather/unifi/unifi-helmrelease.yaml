@@ -1,0 +1,136 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: unifi
+  namespace: flux-system
+spec:
+  chart:
+    spec:
+      chart: unifi
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+  interval: 1m0s
+  values:
+    GID: 999
+    UID: 999
+    captivePortalService:
+      enabled: false
+      externalIPs:
+      - 172.16.10.10
+      http: 8880
+      https: 8843
+      type: ClusterIP
+    controllerService:
+      externalIPs:
+      - 172.16.10.10
+      port: 8080
+      type: ClusterIP
+    customCert:
+      enabled: false
+    discoveryService:
+      externalIPs:
+      - 172.16.10.10
+      port: 10001
+      type: ClusterIP
+    extraJvmOpts: []
+    guiService:
+      externalIPs:
+      - 172.16.10.10
+      port: 8443
+      type: ClusterIP
+    image:
+      pullPolicy: IfNotPresent
+      repository: jacobalberty/unifi
+      tag: v7.3.83
+    jvmInitHeapSize: null
+    jvmMaxHeapSize: 1024M
+    livenessProbe:
+      enabled: true
+      failureThreshold: 3
+      initialDelaySeconds: 30
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 1
+    logging:
+      promtail:
+        enabled: true
+        image:
+          pullPolicy: IfNotPresent
+          repository: grafana/promtail
+          tag: 2.1.0
+        loki:
+          url: http://loki.grafana:3100/loki/api/v1/push
+    mongodb:
+      enabled: false
+    nodeSelector:
+      kubernetes.io/hostname: lightning
+    persistence:
+      data:
+        accessMode: ReadWriteOnce
+        enabled: true
+        size: 5Gi
+        storageClass: local-storage
+    readinessProbe:
+      enabled: true
+      failureThreshold: 3
+      initialDelaySeconds: 15
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 1
+    runAsRoot: false
+    service:
+      main:
+        externalIPs:
+        - 172.16.10.10
+        ports:
+          controller:
+            enabled: true
+            port: 8080
+            protocol: TCP
+          discovery:
+            enabled: true
+            port: 10001
+            protocol: UDP
+          http:
+            port: 8443
+            protocol: HTTPS
+          portal-http:
+            enabled: false
+            port: 8880
+            protocol: HTTP
+          portal-https:
+            enabled: false
+            port: 8843
+            protocol: HTTPS
+          speedtest:
+            enabled: true
+            port: 3478
+            protocol: UDP
+          syslog:
+            enabled: true
+            port: 5514
+            protocol: UDP
+    speedtestService:
+      externalIPs:
+      - 172.16.10.10
+      port: 6789
+      type: ClusterIP
+    strategyType: Recreate
+    stunService:
+      externalIPs:
+      - 172.16.10.10
+      port: 3478
+      type: ClusterIP
+    syslogService:
+      externalIPs:
+      - 172.16.10.10
+      port: 5514
+      type: ClusterIP
+    timezone: UTC
+    unifiedService:
+      enabled: false
+      type: ClusterIP
+
