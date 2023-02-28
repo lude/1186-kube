@@ -51,9 +51,10 @@ spec:
     persistence:
       data:
         accessMode: ReadWriteOnce
+        claimName: unifi-data
         enabled: true
-        size: 5Gi
-        storageClass: local-storage
+        existingClaim: unifi-data
+        size: 50Gi
     readinessProbe:
       enabled: true
       failureThreshold: 3
