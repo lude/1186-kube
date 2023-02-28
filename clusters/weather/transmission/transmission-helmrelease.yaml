@@ -1,0 +1,92 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: transmission
+  namespace: flux-system
+spec:
+  chart:
+    spec:
+      chart: transmission
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+  targetNamespace: transmission
+  install:
+    createNamespace: true
+  interval: 1m0s
+  values:
+    env:
+      TRANSMISSION_DOWNLOAD_DIR: /downloads/complete
+      TRANSMISSION_INCOMPLETE_DIR: /downloads/incomplete
+      TRANSMISSION_INCOMPLETE_DIR_ENABLED: true
+      TRANSMISSION_RPC_PASSWORD: s3cure
+      TRANSMISSION_WEB_HOME: /web
+      TZ: UTC
+    image:
+      pullPolicy: IfNotPresent
+      repository: ghcr.io/k8s-at-home/transmission
+      tag: v3.00
+    ingress:
+      main:
+        enabled: false
+    nodeSelector:
+      kubernetes.io/hostname: hurricane
+    persistence:
+      config:
+        accessMode: ReadWriteOnce
+        claimName: transmission-config
+        enabled: true
+        existingClaim: transmission-config
+        mountPath: /config
+        size: 50Gi
+      downloads:
+        accessMode: ReadWriteOnce
+        claimName: transmission-downloads
+        enabled: true
+        existingClaim: transmission-downloads
+        mountPath: /downloads
+        size: 50Gi
+      watch:
+        accessMode: ReadWriteOnce
+        claimName: transmission-watch
+        enabled: true
+        existingClaim: transmission-watch
+        mountPath: /watch
+        size: 50Gi
+    probes:
+      liveness:
+        spec:
+          timeoutSeconds: 30
+      readiness:
+        spec:
+          timeoutSeconds: 30
+    service:
+      main:
+        externalIPs:
+        - 172.16.13.1
+        ports:
+          http:
+            port: 9091
+      utptcp:
+        enabled: true
+        ports:
+          utptcp:
+            enabled: true
+            nodePort: 51413
+            port: 51413
+            protocol: TCP
+            targetPort: 51413
+        type: NodePort
+      utpudp:
+        enabled: true
+        ports:
+          utpudp:
+            enabled: true
+            nodePort: 51413
+            port: 51413
+            protocol: UDP
+            targetPort: 51413
+        type: NodePort
+
