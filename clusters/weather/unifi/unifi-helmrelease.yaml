@@ -12,35 +12,16 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: k8s-at-home
+  targetNamespace: unifi
+  install:
+    createNamespace: true
   interval: 1m0s
   values:
     GID: 999
     UID: 999
-    captivePortalService:
-      enabled: false
-      externalIPs:
-      - 172.16.10.10
-      http: 8880
-      https: 8843
-      type: ClusterIP
-    controllerService:
-      externalIPs:
-      - 172.16.10.10
-      port: 8080
-      type: ClusterIP
     customCert:
       enabled: false
-    discoveryService:
-      externalIPs:
-      - 172.16.10.10
-      port: 10001
-      type: ClusterIP
     extraJvmOpts: []
-    guiService:
-      externalIPs:
-      - 172.16.10.10
-      port: 8443
-      type: ClusterIP
     image:
       pullPolicy: IfNotPresent
       repository: jacobalberty/unifi
@@ -113,24 +94,3 @@ spec:
             enabled: true
             port: 5514
             protocol: UDP
-    speedtestService:
-      externalIPs:
-      - 172.16.10.10
-      port: 6789
-      type: ClusterIP
-    strategyType: Recreate
-    stunService:
-      externalIPs:
-      - 172.16.10.10
-      port: 3478
-      type: ClusterIP
-    syslogService:
-      externalIPs:
-      - 172.16.10.10
-      port: 5514
-      type: ClusterIP
-    timezone: UTC
-    unifiedService:
-      enabled: false
-      type: ClusterIP
-
