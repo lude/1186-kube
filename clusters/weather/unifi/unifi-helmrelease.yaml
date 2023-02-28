@@ -63,3 +63,8 @@ spec:
       successThreshold: 1
       timeoutSeconds: 1
     runAsRoot: false
+    guiService:
+      type: ClusterIP
+      port: 8443
+      externalIPs:
+      - 172.16.10.10
