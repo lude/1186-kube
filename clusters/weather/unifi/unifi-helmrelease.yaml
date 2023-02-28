@@ -63,35 +63,3 @@ spec:
       successThreshold: 1
       timeoutSeconds: 1
     runAsRoot: false
-    service:
-      main:
-        externalIPs:
-        - 172.16.10.10
-        ports:
-          controller:
-            enabled: true
-            port: 8080
-            protocol: TCP
-          discovery:
-            enabled: true
-            port: 10001
-            protocol: UDP
-          http:
-            port: 8443
-            protocol: HTTPS
-          portal-http:
-            enabled: false
-            port: 8880
-            protocol: HTTP
-          portal-https:
-            enabled: false
-            port: 8843
-            protocol: HTTPS
-          speedtest:
-            enabled: true
-            port: 3478
-            protocol: UDP
-          syslog:
-            enabled: true
-            port: 5514
-            protocol: UDP
