@@ -47,7 +47,7 @@ spec:
     mongodb:
       enabled: false
     nodeSelector:
-      kubernetes.io/hostname: lightning
+      kubernetes.io/hostname: blizzard
     persistence:
       data:
         accessMode: ReadWriteOnce
