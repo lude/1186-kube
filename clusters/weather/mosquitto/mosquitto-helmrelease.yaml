@@ -28,4 +28,11 @@ spec:
           url: http://loki.grafana:3100/loki/api/v1/push
     nodeSelector:
       kubernetes.io/hostname: blizzard
-
+    service:
+      main:
+        externalIPs:
+        - 172.16.10.10
+        ports:
+          http:
+            port: 1883
+            protocol: TCP
