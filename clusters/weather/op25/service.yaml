@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/name: op25
+  name: op25-op25
+  namespace: op25
+spec:
+  externalIPs:
+  - 172.16.10.10
+  ports:
+  - name: http
+    port: 8091
+    protocol: TCP
+  selector:
+    app.kubernetes.io/name: op25
