@@ -14,7 +14,8 @@ RUN mkdir /src && \
     cd build && \
     cmake ../ && \
     make -j5 && \
-    make install
+    make install && \
+    ldconfig
 
 WORKDIR /src/op25/op25/gr-op25_repeater/apps
 
