@@ -1,0 +1,2 @@
+"sysname"	"control_channel_list"	"offset"	"nac"	"modulation"	"tgid_tags_file"	"whitelist"	"blacklist"	"center_frequency"
+"Conifer Mountain CO DTRS"	"853.5875,853.9125"	"0"	"0xd12"	"c4fm"	"genesee.tsv"	"genesee.wl"	""	""

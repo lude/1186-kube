@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: op25
+  namespace: op25
+  labels:
+    app.kubernetes.io/name: op25
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: op25
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: op25
+    spec:
+      containers:
+      - image: lude/op25:latest
+        imagePullPolicy: Always
+        name: op25
+        securityContext:
+          privileged: true
+        ports:
+        - containerPort: 8091
+          name: http
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /src/op25/op25/gr-op25_repeater/apps/startup.sh
+          name: op25-config
+          subPath: startup.sh
+        - mountPath: /src/op25/op25/gr-op25_repeater/apps/trunk.tsv
+          name: op25-config
+          subPath: trunk.tsv
+        - mountPath: /src/op25/op25/gr-op25_repeater/apps/genesee.tsv
+          name: op25-config
+          subPath: genesee.tsv
+        - mountPath: /src/op25/op25/gr-op25_repeater/apps/genesee.wl
+          name: op25-config
+          subPath: genesee.wl
+        - mountPath: /dev
+          name: dev
+        - mountPath: /sys
+          name: sys
+      nodeSelector:
+        kubernetes.io/hostname: blizzard
+      volumes:
+      - name: op25-config
+        configMap:
+          name: op25
+          defaultMode: 0755
+      - name: sys
+        hostPath:
+          path: /sys
+      - name: dev
+        hostPath:
+          path: /dev
