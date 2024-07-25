@@ -65,7 +65,7 @@ spec:
     service:
       main:
         externalIPs:
-        - 172.16.13.2
+        - 172.16.13.1
         ports:
           http:
             port: 9091
