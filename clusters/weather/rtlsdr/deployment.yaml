@@ -30,7 +30,7 @@ spec:
         - mountPath: /sys
           name: sys
       nodeSelector:
-        kubernetes.io/hostname: blizzard
+        kubernetes.io/hostname: swell
       volumes:
       - name: rtlsdr-config
         configMap:
