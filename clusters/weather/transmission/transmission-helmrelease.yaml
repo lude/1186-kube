@@ -32,7 +32,7 @@ spec:
       main:
         enabled: false
     nodeSelector:
-      kubernetes.io/hostname: hurricane
+      kubernetes.io/hostname: avalanche
     persistence:
       config:
         accessMode: ReadWriteOnce
