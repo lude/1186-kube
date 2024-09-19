@@ -6,12 +6,9 @@ metadata:
   namespace: flux-system
 spec:
   chart:
-    spec:
-      chart: strimzi-operator
-      reconcileStrategy: ChartVersion
-      sourceRef:
-        kind: HelmRepository
-        name: strimzi-operator
+    git: https://github.com/strimzi/strimzi-kafka-operator
+    path: helm-charts/helm3/strimzi-kafka-operator
+    ref: 0.43.0
   targetNamespace: strimzi-operator
   install:
     createNamespace: true
