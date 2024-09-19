@@ -6,4 +6,5 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
-  url: https://strimzi.io/charts/
+  type: oci
+  url: oci://quay.io/strimzi-helm/strimzi-kafka-operator
