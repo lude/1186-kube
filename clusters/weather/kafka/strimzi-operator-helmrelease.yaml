@@ -11,7 +11,7 @@ spec:
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: HelmRepository
-        name: strimzi/strimzi-operator
+        name: strimzi-operator
   targetNamespace: strimzi-operator
   install:
     createNamespace: true
