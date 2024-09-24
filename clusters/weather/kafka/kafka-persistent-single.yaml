@@ -25,12 +25,9 @@ spec:
       inter.broker.protocol.version: "3.8"
     storage:
       type: persistent-claim
-      volumes:
-      - id: 0
-        type: persistent-claim
-        size: 100Gi
-        deleteClaim: false
-        class: local-storage
+      size: 100Gi
+      deleteClaim: false
+      class: local-storage
   zookeeper:
     replicas: 1
     storage:
