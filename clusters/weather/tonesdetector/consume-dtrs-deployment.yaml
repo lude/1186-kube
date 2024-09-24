@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app.kubernetes.io/name: tonesdetector-dtrs
+  name: tonesdetector-dtrs
+  namespace: tonesdetector
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: tonesdetector-dtrs
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: tonesdetector-dtrs
+    spec:
+      containers:
+      - image: lude/tonesdetector:latest
+        imagePullPolicy: Always
+        name: tonesdetector
+        command:
+        - /app/consume-dtrs.py
+      nodeSelector:
+        kubernetes.io/hostname: blizzard
+      restartPolicy: Always
