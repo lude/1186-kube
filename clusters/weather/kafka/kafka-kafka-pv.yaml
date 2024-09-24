@@ -8,7 +8,7 @@ spec:
   accessModes:
   - ReadWriteOnce
   capacity:
-    storage: 50Gi
+    storage: 100Gi
   hostPath:
     path: /storage/strimzi-operator/data-radio-cluster-kafka-0
     type: ""
