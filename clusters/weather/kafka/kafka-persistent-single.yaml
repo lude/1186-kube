@@ -24,18 +24,20 @@ spec:
       min.insync.replicas: 1
       inter.broker.protocol.version: "3.8"
     storage:
-      type: jbod
+      type: persistent-claim
       volumes:
       - id: 0
         type: persistent-claim
         size: 100Gi
         deleteClaim: false
+        class: local-storage
   zookeeper:
     replicas: 1
     storage:
       type: persistent-claim
       size: 100Gi
       deleteClaim: false
+      class: local-storage
   entityOperator:
     topicOperator: {}
     userOperator: {}
