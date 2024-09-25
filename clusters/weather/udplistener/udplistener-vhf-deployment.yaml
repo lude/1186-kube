@@ -23,6 +23,8 @@ spec:
         - "23457"
         - -host
         - radio-cluster-kafka-bootstrap.strimzi-operator
+        - -frame
+        - "8000"
         image: lude/udplistener:latest
         imagePullPolicy: Always
         name: udplistener
