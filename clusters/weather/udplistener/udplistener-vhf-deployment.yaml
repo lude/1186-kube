@@ -25,6 +25,8 @@ spec:
         - radio-cluster-kafka-bootstrap.strimzi-operator
         - -frame
         - "8000"
+        - -topic
+        - audio-buffer-vhf
         image: lude/udplistener:latest
         imagePullPolicy: Always
         name: udplistener
