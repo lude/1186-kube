@@ -5,6 +5,8 @@ metadata:
   namespace: strimzi-operator
 spec:
   kafka:
+    nodeSelector:
+      kubernetes.io/hostname: blizzard
     version: 3.8.0
     replicas: 1
     listeners:
