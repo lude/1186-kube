@@ -5,15 +5,6 @@ metadata:
   namespace: strimzi-operator
 spec:
   kafka:
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-            - matchExpressions:
-              - key: kubernetes.io/hostname
-                operator: In
-                values:
-                - blizzard
     version: 3.8.0
     replicas: 1
     listeners:
