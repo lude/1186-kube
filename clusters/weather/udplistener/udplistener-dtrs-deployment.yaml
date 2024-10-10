@@ -23,7 +23,7 @@ spec:
         - "23456"
         - -host
         - "amqp://user:agnQzKKlDYP33vQA@rabbitmq-rabbitmq.rabbitmq:5672/"
-        - -topic
+        - -queue
         - audio-buffer-dtrs
         image: lude/udplistener:latest
         imagePullPolicy: Always

@@ -25,7 +25,7 @@ spec:
         - "amqp://user:agnQzKKlDYP33vQA@rabbitmq-rabbitmq.rabbitmq:5672/"
         - -frame
         - "8000"
-        - -topic
+        - -queue
         - audio-buffer-vhf
         image: lude/udplistener:latest
         imagePullPolicy: Always
