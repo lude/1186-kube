@@ -22,7 +22,7 @@ spec:
         - -port
         - "23456"
         - -host
-        - radio-cluster-kafka-bootstrap.strimzi-operator
+        - "amqp://user:agnQzKKlDYP33vQA@rabbitmq-rabbitmq.rabbitmq:5672/"
         - -topic
         - audio-buffer-dtrs
         image: lude/udplistener:latest

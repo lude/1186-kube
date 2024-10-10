@@ -22,7 +22,7 @@ spec:
         - -port
         - "23457"
         - -host
-        - radio-cluster-kafka-bootstrap.strimzi-operator
+        - "amqp://user:agnQzKKlDYP33vQA@rabbitmq-rabbitmq.rabbitmq:5672/"
         - -frame
         - "8000"
         - -topic
