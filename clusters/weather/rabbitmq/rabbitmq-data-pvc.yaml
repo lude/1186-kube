@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: rabbitmq-data
+  name: data-rabbitmq-rabbitmq-0
   namespace: rabbitmq
 spec:
   accessModes:
@@ -11,4 +11,4 @@ spec:
       storage: 50Gi
   storageClassName: local-storage
   volumeMode: Filesystem
-  volumeName: rabbitmq-data
+  volumeName: data-rabbitmq-rabbitmq-0
