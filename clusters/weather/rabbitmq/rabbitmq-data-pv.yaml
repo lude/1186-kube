@@ -3,14 +3,14 @@ kind: PersistentVolume
 metadata:
   finalizers:
   - kubernetes.io/pv-protection
-  name: plex-data
+  name: rabbitmq-data
 spec:
   accessModes:
   - ReadWriteOnce
   capacity:
     storage: 50Gi
   hostPath:
-    path: /storage/kubernetes/plex/plex/data
+    path: /storage/kubernetes/rabbitmq/rabbitmq/data
     type: ""
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
