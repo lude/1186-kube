@@ -3,7 +3,7 @@ apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
   name: truecharts
-  namespace: flux-system
+  namespace: scrypted
 spec:
   interval: 10m
   type: oci
