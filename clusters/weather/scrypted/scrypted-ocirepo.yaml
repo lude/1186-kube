@@ -7,3 +7,5 @@ metadata:
 spec:
   interval: 10m
   url: oci://tccr.io/truecharts/scrypted
+  ref:
+    semver: "6.18.3"
