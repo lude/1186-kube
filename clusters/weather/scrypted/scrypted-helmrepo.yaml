@@ -1,11 +1,10 @@
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: OCIRepository
+kind: HelmRepository
 metadata:
   name: truecharts
   namespace: flux-system
 spec:
   interval: 10m
+  type: oci
   url: oci://tccr.io/truecharts/scrypted
-  ref:
-    semver: "6.18.3"
