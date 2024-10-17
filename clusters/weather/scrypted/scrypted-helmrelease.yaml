@@ -1,0 +1,14 @@
+---
+metadata:
+  name: scrypted
+  namespace: default
+spec:
+  interval: 10m
+  releaseName: scrypted
+  chartRef:
+    kind: OCIRepository
+    name: truecharts
+  targetNamespace: scrypted
+  install:
+    createNamespace: true
+

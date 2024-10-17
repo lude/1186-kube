@@ -1,0 +1,9 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: OCIRepository
+metadata:
+  name: truecharts
+  namespace: flux-system
+spec:
+  interval: 10m
+  url: oci://tccr.io/truecharts/scrypted
