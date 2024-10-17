@@ -3,14 +3,21 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: scrypted
-  namespace: default
+  namespace: scrypted
 spec:
   interval: 10m
+  timeout: 5m
+  chart:
+    spec:
+      chart: scrypted
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+      interval: 5m
   releaseName: scrypted
-  chartRef:
-    kind: OCIRepository
-    name: truecharts
-  targetNamespace: scrypted
   install:
-    createNamespace: true
-
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
