@@ -23,3 +23,8 @@ spec:
   upgrade:
     remediation:
       retries: 3
+  values:
+    nodeSelector:
+      kubernetes.io/hostname: avalanche
+    podOptions:
+      hostNetwork: true
