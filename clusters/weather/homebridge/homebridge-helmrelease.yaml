@@ -17,6 +17,10 @@ spec:
     createNamespace: true
   interval: 1m0s
   values:
+    image:
+      repository: homebridge/homebridge
+      tag: latest
+      pullPolicy: Always
     logging:
       promtail:
         enabled: true
