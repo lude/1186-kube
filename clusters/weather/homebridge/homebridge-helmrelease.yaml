@@ -16,6 +16,10 @@ spec:
   install:
     createNamespace: true
   interval: 1m0s
+  image:
+    repository: ghcr.io/oznu/homebridge
+    tag: 2023-01-08
+    pullPolicy: IfNotPresent
   values:
     logging:
       promtail:
