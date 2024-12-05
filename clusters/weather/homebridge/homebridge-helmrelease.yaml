@@ -19,7 +19,8 @@ spec:
   values:
     image:
       repository: homebridge/homebridge
-      tag: "2024-11-29"
+      tag: 
+        | 2024-11-29
       pullPolicy: IfNotPresent
     logging:
       promtail:
