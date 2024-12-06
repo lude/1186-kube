@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app.kubernetes.io/name: holidaylights
+  name: holidaylights
+  namespace: holidaylights
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: holidaylights
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: holidaylights
+    spec:
+      containers:
+      - image: lude/holidaylights:latest
+        imagePullPolicy: Always
+        name: holidaylights
+      nodeSelector:
+        kubernetes.io/hostname: blizzard
+      restartPolicy: Always
