@@ -2,6 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
+    another-autoscaler/start-time: "00 23 * * *"
+    another-autoscaler/start-replicas: "1"
+    another-autoscaler/stop-time: "30 06 * * *"
   labels:
     app.kubernetes.io/name: holidaylights
   name: holidaylights
