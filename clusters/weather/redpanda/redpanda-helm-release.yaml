@@ -18,6 +18,8 @@ spec:
         namespace: redpanda
       interval: 1m
   values:
+    console:
+      enabled: false
     statefulset:
       initContainers:
         setDataDirOwnership:
