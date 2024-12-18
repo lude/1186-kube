@@ -25,3 +25,5 @@ spec:
       replicas: 1
     storage:
       hostPath: "/storage/kubernetes/redpanda/"
+    tls:
+      enabled: true
