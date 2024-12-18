@@ -22,3 +22,6 @@ spec:
       initContainers:
         setDataDirOwnership:
           enabled: true
+      replicas: 1
+    storage:
+      hostPath: "/storage/kubernetes/redpanda/"
