@@ -22,3 +22,11 @@ spec:
     persistence:
       enabled: true
       storageClass: local-storage
+    postgresql-ha:
+      enabled: false
+    postgresql:
+      enabled: true
+    redis-cluster:
+      enabled: false
+    redis:
+      enabled: true
