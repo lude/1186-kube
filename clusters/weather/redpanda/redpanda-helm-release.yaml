@@ -18,14 +18,10 @@ spec:
         namespace: redpanda
       interval: 1m
   values:
-    console:
-      enabled: false
     statefulset:
       initContainers:
         setDataDirOwnership:
           enabled: true
       replicas: 1
-    storage:
-      hostPath: "/storage/kubernetes/redpanda/"
     tls:
       enabled: true
