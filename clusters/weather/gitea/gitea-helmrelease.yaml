@@ -42,7 +42,7 @@ spec:
 
     ingress:
       enabled: true
-      className: envoy
+      className: traefik
       annotations:
         {}
         # kubernetes.io/ingress.class: nginx
