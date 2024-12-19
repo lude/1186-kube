@@ -16,3 +16,17 @@ spec:
   install:
     createNamespace: true
   interval: 1m0s
+  values:
+    service:
+      enabled: true
+      single: true
+      type: ClusterIP
+      annotations: {}
+      annotationsTCP: {}
+      annotationsUDP: {}
+      labels: {}
+      spec: {}
+      loadBalancerSourceRanges: []
+      externalIPs:
+      - 172.16.10.9
+      additionalServices: {}
