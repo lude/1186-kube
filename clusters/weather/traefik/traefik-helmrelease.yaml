@@ -30,3 +30,19 @@ spec:
       externalIPs:
       - 172.16.10.9
       additionalServices: {}
+  certificatesResolvers:
+    letsencrypt:
+      acme:
+        email: m@lude.net
+        storage: acme.json
+        dnsChallenge:
+          provider: route53
+  env:
+  - name: AWS_ACCESS_KEY_ID
+    value: AKIA57RUPA2NKI6XCIGK
+  - name: AWS_SECRET_ACCESS_KEY
+    valueFrom:
+      secretKeyRef:
+        name: route53
+        key: secret_key
+
