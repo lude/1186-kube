@@ -17,6 +17,8 @@ spec:
     createNamespace: true
   interval: 1m0s
   values:
+    env:
+      DRONE_SERVER_HOST: "drone.lude.net"
     global:
       defaultStorageClass: local-storage
     nodeSelector:
