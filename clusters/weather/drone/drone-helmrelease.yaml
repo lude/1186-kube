@@ -20,7 +20,7 @@ spec:
     env:
       DRONE_SERVER_HOST: "drone.lude.net"
       DRONE_GITEA_CLIENT_ID: "c30e03e0-b703-42ba-8763-648ed0e4664d"
-      DRONE_GITEA_CLIENT_SECRET: "gto_ksw4vf7grtqj5romiwnnuevwhdl3ptf3c63b4sjimenfvnf4y4aa"
+      DRONE_GITEA_CLIENT_SECRET: "redacted"
       DRONE_GITEA_SERVER: "http://gitea-gitea-http.gitea:3000/"
     persistentVolume:
       storageClass: local-storage
