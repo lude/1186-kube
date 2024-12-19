@@ -19,7 +19,7 @@ spec:
   values:
     env:
       DRONE_SERVER_HOST: "drone.lude.net"
-    global:
-      defaultStorageClass: local-storage
+    persistentVolume:
+      storageClass: local-storage
     nodeSelector:
       kubernetes.io/hostname: avalanche

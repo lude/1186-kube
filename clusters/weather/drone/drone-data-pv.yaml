@@ -3,14 +3,14 @@ kind: PersistentVolume
 metadata:
   finalizers:
   - kubernetes.io/pv-protection
-  name: data-drone-drone-0
+  name: drone-drone
 spec:
   accessModes:
   - ReadWriteOnce
   capacity:
     storage: 50Gi
   hostPath:
-    path: /storage/kubernetes/drone/drone/data
+    path: /storage/kubernetes/drone/drone
     type: ""
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
