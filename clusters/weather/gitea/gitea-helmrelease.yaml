@@ -22,14 +22,10 @@ spec:
     persistence:
       enabled: true
       storageClass: local-storage
-    redis-cluster:
-      enabled: false
-    redis:
-      enabled: true
     gitea:
       config:
         database:
-          DB_TYPE: postgresql
+          DB_TYPE: postgres
           HOST: postgresql-postgresql.postgresql
           NAME: gitea
           USER: gitea_user
@@ -39,3 +35,8 @@ spec:
       enabled: false
     postgresql-ha:
       enabled: false
+    redis-cluster:
+      enabled: false
+    redis:
+      enabled: true
+
