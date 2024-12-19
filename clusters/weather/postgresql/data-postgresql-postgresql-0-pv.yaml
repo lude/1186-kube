@@ -3,14 +3,14 @@ kind: PersistentVolume
 metadata:
   finalizers:
   - kubernetes.io/pv-protection
-  name: data-gitea-gitea-postgresql-postgresql-0
+  name: data-postgresql-postgresql-0
 spec:
   accessModes:
   - ReadWriteOnce
   capacity:
     storage: 50Gi
   hostPath:
-    path: /storage/kubernetes/gitea/postgresql/data
+    path: /storage/kubernetes/postgresql/postgresql/data
     type: ""
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
