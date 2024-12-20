@@ -21,6 +21,7 @@ spec:
       - giteaenvs
     env:
       DRONE_SERVER_HOST: "drone.lude.net"
+      DRONE_SERVER_PROTO: "https"
       DRONE_GITEA_CLIENT_ID: "c30e03e0-b703-42ba-8763-648ed0e4664d"
       DRONE_GITEA_SERVER: "https://gitea.lude.net"
     persistentVolume:
