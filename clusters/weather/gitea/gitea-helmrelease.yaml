@@ -39,11 +39,12 @@ spec:
       enabled: false
     redis:
       enabled: true
-
     ingress:
       enabled: true
       className: traefik-traefik
       annotations:
+        traefik.ingress.kubernetes.io/router.tls: "true"
+        traefik.ingress.kubernetes.io/router.tls.certresolver: letsencrypt
         # kubernetes.io/ingress.class: nginx
         # kubernetes.io/tls-acme: "true"
       hosts:
