@@ -3,14 +3,14 @@ kind: PersistentVolume
 metadata:
   finalizers:
   - kubernetes.io/pv-protection
-  name: woodpecker-woodpecker
+  name: data-woodpecker-woodpecker-server-0
 spec:
   accessModes:
   - ReadWriteOnce
   capacity:
     storage: 50Gi
   hostPath:
-    path: /storage/kubernetes/woodpecker/woodpecker
+    path: /storage/kubernetes/woodpecker/server
     type: ""
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
