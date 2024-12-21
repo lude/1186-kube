@@ -17,20 +17,26 @@ spec:
     createNamespace: true
   interval: 1m0s
   values:
-    persistentVolume:
-      storageClass: local-storage
-    nodeSelector:
-      kubernetes.io/hostname: avalanche
-    ingress:
-      enabled: true
-      className: traefik-traefik
-      annotations:
-        traefik.ingress.kubernetes.io/router.tls: "true"
-        traefik.ingress.kubernetes.io/router.tls.certresolver: letsencrypt
-        # kubernetes.io/ingress.class: nginx
-        # kubernetes.io/tls-acme: "true"
-      hosts:
-      - host: woodpecker.lude.net
-        paths:
-        - path: /
-          pathType: Prefix
+    agent:
+      persistence: 
+        storageClass: local-storage
+      nodeSelector:
+        kubernetes.io/hostname: avalanche
+    server:
+      persistentVolume:
+        storageClass: local-storage
+      nodeSelector:
+        kubernetes.io/hostname: avalanche
+      ingress:
+        enabled: true
+        className: traefik-traefik
+        annotations:
+          traefik.ingress.kubernetes.io/router.tls: "true"
+          traefik.ingress.kubernetes.io/router.tls.certresolver: letsencrypt
+          # kubernetes.io/ingress.class: nginx
+          # kubernetes.io/tls-acme: "true"
+        hosts:
+        - host: woodpecker.lude.net
+          paths:
+          - path: /
+            pathType: Prefix

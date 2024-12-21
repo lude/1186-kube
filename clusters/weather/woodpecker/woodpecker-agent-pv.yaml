@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolume
+metaagent:
+  finalizers:
+  - kubernetes.io/pv-protection
+  name: woodpecker-woodpecker
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 50Gi
+  hostPath:
+    path: /storage/kubernetes/woodpecker/woodpecker
+    type: ""
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  volumeMode: Filesystem
