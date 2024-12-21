@@ -27,6 +27,13 @@ spec:
         storageClass: local-storage
       nodeSelector:
         kubernetes.io/hostname: avalanche
+      env:
+        WOODPECKER_ADMIN: 'woodpecker,admin'
+        WOODPECKER_HOST: 'https://woodpecker.lude.net'
+        WOODPECKER_GITEA: 'true'
+        WOODPECKER_GITEA_URL: 'https://gitea.lude.net/'
+        WOODPECKER_GITEA_CLIENT: 'c30e03e0-b703-42ba-8763-648ed0e4664d'
+        WOODPECKER_GITEA_SECRET: 'YOUR_GITEA_CLIENT_SECRET'
       ingress:
         enabled: true
         className: traefik-traefik
