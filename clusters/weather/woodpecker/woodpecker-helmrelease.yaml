@@ -32,8 +32,10 @@ spec:
         WOODPECKER_HOST: 'https://woodpecker.lude.net'
         WOODPECKER_GITEA: 'true'
         WOODPECKER_GITEA_URL: 'https://gitea.lude.net/'
-        WOODPECKER_GITEA_CLIENT: 'c30e03e0-b703-42ba-8763-648ed0e4664d'
-        WOODPECKER_GITEA_SECRET: 'YOUR_GITEA_CLIENT_SECRET'
+        WOODPECKER_GITEA_CLIENT: 'e85de8b3-6a3d-4dab-914c-3da9ad56c206'
+        # WOODPECKER_GITEA_SECRET: 'YOUR_GITEA_CLIENT_SECRET'
+      extraSecretNamesForEnvFrom:
+      - giteaenvs
       ingress:
         enabled: true
         className: traefik-traefik
