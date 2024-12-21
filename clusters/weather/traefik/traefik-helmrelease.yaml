@@ -45,6 +45,8 @@ spec:
           dnsChallenge:
             provider: route53
     env:
+    - name: AWS_REGION
+      value: us-east-1
     - name: AWS_ACCESS_KEY_ID
       value: AKIA57RUPA2NKI6XCIGK
     - name: AWS_SECRET_ACCESS_KEY
