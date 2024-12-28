@@ -25,7 +25,7 @@ spec:
         - redpanda.redpanda
         - -frame
         - "8000"
-        - -queue
+        - -topic
         - audio-buffer-vhf
         image: lude/udplistener:latest
         imagePullPolicy: Always
