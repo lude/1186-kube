@@ -25,3 +25,6 @@ spec:
       replicas: 1
     tls:
       enabled: false
+    listeners:
+      kafka:
+        port: 9092
