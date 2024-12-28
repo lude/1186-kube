@@ -22,8 +22,8 @@ spec:
         - -port
         - "23456"
         - -host
-        - "amqp://user:agnQzKKlDYP33vQA@rabbitmq-rabbitmq.rabbitmq:5672/"
-        - -queue
+        - redpanda.redpanda
+        - -topic
         - audio-buffer-dtrs
         image: lude/udplistener:latest
         imagePullPolicy: Always
