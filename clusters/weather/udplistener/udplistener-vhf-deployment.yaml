@@ -22,7 +22,7 @@ spec:
         - -port
         - "23457"
         - -host
-        - "amqp://user:agnQzKKlDYP33vQA@rabbitmq-rabbitmq.rabbitmq:5672/"
+        - redpanda.redpanda
         - -frame
         - "8000"
         - -queue
