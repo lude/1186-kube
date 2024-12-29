@@ -29,8 +29,7 @@ spec:
       deleteClaim: false
       class: local-storage
       selector:
-        matchLabels:
-          name: kafka-kafka-0
+        name: kafka-kafka-0
     template:
       pod:
         affinity:
@@ -50,8 +49,7 @@ spec:
       deleteClaim: false
       class: local-storage
       selector:
-        matchLabels:
-          name: kafka-zookeeper-0
+        name: kafka-zookeeper-0
     template:
       pod:
         affinity:
