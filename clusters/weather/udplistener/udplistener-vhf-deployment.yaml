@@ -22,7 +22,7 @@ spec:
         - -port
         - "23457"
         - -host
-        - redpanda.redpanda
+        - kafka-kafka-bootstrap.strimzi
         - -frame
         - "8000"
         - -topic
