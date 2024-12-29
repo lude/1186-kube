@@ -4,8 +4,8 @@ metadata:
   finalizers:
   - kubernetes.io/pv-protection
   name: kafka-zookeeper-0
-    labels:
-      name: kafka-zookeeper-0
+  labels:
+    name: kafka-zookeeper-0
 spec:
   accessModes:
   - ReadWriteOnce
