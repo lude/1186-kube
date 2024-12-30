@@ -92,7 +92,6 @@ spec:
         periodSeconds: 10
     proxy:
       enabled: false
-    resources: {}
     securityContext: {}
     service:
       main:
