@@ -29,7 +29,7 @@ spec:
       tag: 1.41.3.9314-a0bfb8370
     nodeSelector:
       kubernetes.io/hostname: avalanche
-    resources: {}
+    resources:
       limits:
         memory: 4096Mi
       requests:
