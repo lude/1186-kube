@@ -29,6 +29,12 @@ spec:
       tag: 1.41.2.9200-c6bbc1b53
     nodeSelector:
       kubernetes.io/hostname: avalanche
+    resources: {}
+      limits:
+        memory: 4096Mi
+      requests:
+        cpu: 100m
+        memory: 512Mi
     persistence:
       config:
         accessMode: ReadWriteOnce
