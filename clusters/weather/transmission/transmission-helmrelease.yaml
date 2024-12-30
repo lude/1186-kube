@@ -33,6 +33,13 @@ spec:
         enabled: false
     nodeSelector:
       kubernetes.io/hostname: avalanche
+    resources:
+      limits:
+        cpu: 100m
+        memory: 1024Mi
+      requests:
+        cpu: 4
+        memory: 4096Mi
     persistence:
       config:
         accessMode: ReadWriteOnce
