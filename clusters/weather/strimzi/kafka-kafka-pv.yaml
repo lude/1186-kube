@@ -3,14 +3,16 @@ kind: PersistentVolume
 metadata:
   finalizers:
   - kubernetes.io/pv-protection
-  name: datadir-redpanda-0
+  name: kafka-kafka-0
+  labels:
+    name: kafka-kafka-0
 spec:
   accessModes:
   - ReadWriteOnce
   capacity:
-    storage: 50Gi
+    storage: 100Gi
   hostPath:
-    path: /storage/kubernetes/redpanda/redpanda/data
+    path: /storage/kubernetes/strimzi/kafka-kafka-0
     type: ""
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage

@@ -22,7 +22,7 @@ spec:
         - -port
         - "23456"
         - -host
-        - redpanda.redpanda
+        - kafka-kafka-bootstrap.strimzi
         - -topic
         - audio-buffer-dtrs
         image: lude/udplistener:latest
