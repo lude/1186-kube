@@ -15,7 +15,7 @@ spec:
   targetNamespace: transmission
   install:
     createNamespace: true
-  interval: 1m0s
+  interval: 10m
   values:
     env:
       TRANSMISSION_DOWNLOAD_DIR: /downloads/complete

@@ -15,7 +15,7 @@ spec:
   targetNamespace: traefik
   install:
     createNamespace: true
-  interval: 1m0s
+  interval: 10m
   values:
     service:
       enabled: true

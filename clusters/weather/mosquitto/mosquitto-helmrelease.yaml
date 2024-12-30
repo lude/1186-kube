@@ -15,7 +15,7 @@ spec:
   targetNamespace: mosquitto
   install:
     createNamespace: true
-  interval: 1m0s
+  interval: 10m
   values:
     logging:
       promtail:
