@@ -22,6 +22,7 @@ spec:
         storageClass: local-storage
       nodeSelector:
         kubernetes.io/hostname: avalanche
+      replicaCount: 1
     server:
       persistentVolume:
         storageClass: local-storage
