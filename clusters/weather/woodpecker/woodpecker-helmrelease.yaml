@@ -23,6 +23,8 @@ spec:
       nodeSelector:
         kubernetes.io/hostname: avalanche
       replicaCount: 1
+      env:
+        WOODPECKER_SERVER: 'woodpecker-woodpecker-server:9000'
     server:
       persistentVolume:
         storageClass: local-storage
