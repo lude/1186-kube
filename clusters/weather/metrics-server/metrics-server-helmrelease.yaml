@@ -15,4 +15,4 @@ spec:
   targetNamespace: metrics-server
   install:
     createNamespace: true
-  interval: 10m0s
+  interval: 1h
