@@ -44,7 +44,7 @@ spec:
             #password: "password"
             coreDatabase: "harbor"
             # if using existing secret, the key must be "password"
-            existingSecret: "harbor"
+            existingSecret: "pgcreds"
             sslmode: "disable"
 
 
