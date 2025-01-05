@@ -23,15 +23,16 @@ spec:
           core: harbor.lude.net
     externalURL: harbor.lude.net
     persistence:
-      registry:
-        storageClass: local-path
-      jobservice:
-        jobLog:
+      persistentVolumeClaim:
+        registry:
           storageClass: local-path
-      redis:
-        storageClass: local-path
-      trivy:
-        storageClass: local-path
+        jobservice:
+          jobLog:
+            storageClass: local-path
+        redis:
+          storageClass: local-path
+        trivy:
+          storageClass: local-path
     core:
       nodeSelector:
         kubernetes.io/hostname: avalanche
