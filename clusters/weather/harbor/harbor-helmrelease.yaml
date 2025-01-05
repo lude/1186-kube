@@ -1,0 +1,50 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: harbor
+  namespace: flux-system
+spec:
+  chart:
+    spec:
+      chart: harbor
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: harbor
+  targetNamespace: harbor
+  install:
+    createNamespace: true
+  interval: 10m
+  values:
+    expose:
+      ingress:
+        hosts:
+          core: harbor.lude.net
+    externalURL: harbor.lude.net
+    persistence:
+      registry:
+        storageClass: local-path
+      jobservice:
+        jobLog:
+          storageClass: local-path
+      redis:
+        storageClass: local-path
+      trivy:
+        storageClass: local-path
+    core:
+      nodeSelector:
+        kubernetes.io/hostname: avalanche
+    database:
+      type: external
+      external:
+            host: "postgresql-postgresql.postgresql"
+            port: "5432"
+            username: "harbor_user"
+            #password: "password"
+            coreDatabase: "harbor"
+            # if using existing secret, the key must be "password"
+            existingSecret: "harbor"
+            sslmode: "disable"
+
+
