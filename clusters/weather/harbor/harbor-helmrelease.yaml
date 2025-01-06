@@ -24,7 +24,7 @@ spec:
         annotations:
           traefik.ingress.kubernetes.io/router.tls: "true"
           traefik.ingress.kubernetes.io/router.tls.certresolver: letsencrypt
-    externalURL: harbor.lude.net
+    externalURL: https://harbor.lude.net
     persistence:
       persistentVolumeClaim:
         registry:
