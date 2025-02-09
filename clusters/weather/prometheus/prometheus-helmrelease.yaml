@@ -24,6 +24,14 @@ spec:
       prometheusSpec:
         nodeSelector:
           kubernetes.io/hostname: blizzard
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: local-storage
+              accessModes: ["ReadWriteOnce"]
+              resources:
+                requests:
+                  storage: 8Gi
     persistence:
       enabled: true
       storageClass: local-storage
