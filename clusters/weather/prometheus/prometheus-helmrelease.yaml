@@ -17,8 +17,13 @@ spec:
     createNamespace: true
   interval: 10m
   values:
-    nodeSelector:
-      kubernetes.io/hostname: blizzard
+    alertmanager:
+      nodeSelector:
+        kubernetes.io/hostname: blizzard
+    prometheus:
+      prometheusSpec:
+        nodeSelector:
+          kubernetes.io/hostname: blizzard
     persistence:
       enabled: true
       storageClass: local-storage
