@@ -120,13 +120,6 @@ spec:
       enabled: true
     kubeStateMetrics:
       enabled: true
-    kube-state-metrics:
-      rbac:
-        create: true
-      releaseLabel: true
-      prometheus:
-        monitor:
-          enabled: true
     nodeExporter:
       enabled: true
       operatingSystems:
