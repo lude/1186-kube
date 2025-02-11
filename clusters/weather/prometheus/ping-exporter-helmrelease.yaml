@@ -16,3 +16,23 @@ spec:
   install:
     createNamespace: true
   interval: 10m
+  values:
+    config:
+    targets:
+      - 8.8.8.8
+      - 8.8.4.4
+      - 73.229.38.1
+      - google.com
+
+    dns:
+      refresh: 2m15s
+      nameserver: 172.16.10.4
+
+    ping:
+      interval: 2s
+      timeout: 3s
+      history-size: 42
+      payload-size: 120
+
+    serviceMonitor:
+      enabled: true
