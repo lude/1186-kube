@@ -8,9 +8,9 @@ spec:
   chart:
     spec:
       chart: ./dist/charts/ping-exporter
-      reconcileStrategy: ChartVersion
+      reconcileStrategy: Revision
       sourceRef:
-        kind: HelmRepository
+        kind: GitRepository
         name: ping-exporter
   targetNamespace: prometheus
   install:
