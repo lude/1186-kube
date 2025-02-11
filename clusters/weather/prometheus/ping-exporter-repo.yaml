@@ -1,9 +1,11 @@
 ---
-apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: HelmRepository
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
 metadata:
   name: ping-exporter
   namespace: flux-system
 spec:
   interval: 10m
-  url: https://raw.githubusercontent.com/czerwonk/ping_exporter/main/dist/charts/
+  url: https://github.com/czerwonk/ping_exporter
+  ref:
+    branch: main
