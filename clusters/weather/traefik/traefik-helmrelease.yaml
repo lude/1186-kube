@@ -29,6 +29,7 @@ spec:
       loadBalancerSourceRanges: []
       externalIPs:
       - 172.16.10.9
+      - 172.16.10.8
       additionalServices: {}
     persistence:
       enabled: true
