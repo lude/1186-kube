@@ -38,6 +38,12 @@ spec:
         - mountPath: /src/op25/op25/gr-op25_repeater/apps/genesee.wl
           name: op25-config
           subPath: genesee.wl
+        - mountPath: /src/op25/op25/gr-op25_repeater/apps/colorado_dtrs.json
+          name: op25-config
+          subPath: colorado_dtrs.json
+        - mountPath: /src/op25/op25/gr-op25_repeater/apps/rids.tsv
+          name: op25-config
+          subPath: rids.tsv
         - mountPath: /dev
           name: dev
         - mountPath: /sys
