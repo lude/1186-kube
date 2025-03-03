@@ -1,7 +1,7 @@
 {
     "channels": [
         {
-            "name": "Voice_ch1", 
+            "name": "Genesee Fire", 
             "device": "sdr0",
             "trunking_sysname": "Conifer Mountain CO DTRS",
             "demod_type": "cqpsk", 
@@ -16,7 +16,7 @@
             "symbol_rate": 4800,
             "enable_analog": "off",
             "blacklist": "",
-            "whitelist": "genesee.wl"
+            "whitelist": ""
         }
     ], 
     "devices": [
@@ -43,7 +43,7 @@
                 "control_channel_list": "853.5875,853.9125",
                 "whitelist": "",
                 "blacklist": "",
-                "tgid_tags_file": "trunk.tsv",
+                "tgid_tags_file": "genesee.tsv",
                 "rid_tags_file": "rids.tsv",
                 "tdma_cc": false,
                 "crypt_behavior": 0
@@ -56,7 +56,7 @@
             {
                 "instance_name": "audio0",
                 "device_name": "default",
-                "udp_port": 23456,
+                "udp_port": 23455,
                 "audio_gain": 1.0,
                 "number_channels": 1
             }
@@ -70,6 +70,6 @@
         "http_plot_directory": "../www/images",
         "tuning_step_large": 1200,
         "tuning_step_small": 100,
-        "default_channel": "Voice_ch1"
+        "default_channel": "Genesee Fire"
     }
 }
