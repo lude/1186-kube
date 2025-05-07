@@ -8,7 +8,7 @@ spec:
   accessModes:
   - ReadWriteOnce
   capacity:
-    storage: 50Gi
+    storage: 8Gi
   hostPath:
     path: /storage/kubernetes/gitea/redis-data-gitea-gitea-redis-master-0
     type: ""

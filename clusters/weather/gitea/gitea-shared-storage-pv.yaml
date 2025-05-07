@@ -8,7 +8,7 @@ spec:
   accessModes:
   - ReadWriteOnce
   capacity:
-    storage: 50Gi
+    storage: 10Gi
   hostPath:
     path: /storage/kubernetes/gitea/gitea-shared-storage
     type: ""
