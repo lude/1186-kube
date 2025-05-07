@@ -21,6 +21,7 @@ spec:
       kubernetes.io/hostname: avalanche
     persistence:
       enabled: true
+      create: true
       storageClass: local-path
     gitea:
       config:
