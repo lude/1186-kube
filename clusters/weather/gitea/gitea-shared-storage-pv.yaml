@@ -3,14 +3,14 @@ kind: PersistentVolume
 metadata:
   finalizers:
   - kubernetes.io/pv-protection
-  name: gitea-shared-storage
+  name: redis-data-gitea-gitea-redis-master-0
 spec:
   accessModes:
   - ReadWriteOnce
   capacity:
-    storage: 10Gi
+    storage: 8Gi
   hostPath:
-    path: /storage/kubernetes/gitea/gitea-shared-storage
+    path: /storage/kubernetes/gitea/redis-data-gitea-gitea-redis-master-0
     type: ""
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
