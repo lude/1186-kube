@@ -8,7 +8,7 @@ spec:
   accessModes:
   - ReadWriteOnce
   capacity:
-    storage: 50Gi
+    storage: 25Gi
   hostPath:
     path: /storage/kubernetes/jellyfin/jellyfin/config
     type: ""
