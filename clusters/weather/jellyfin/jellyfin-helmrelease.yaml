@@ -17,6 +17,9 @@ spec:
     createNamespace: true
   interval: 10m
   values:
+    service:
+      externalIPs:
+        - 172.16.10.5
     nodeSelector:
       kubernetes.io/hostname: avalanche
     persistence:
