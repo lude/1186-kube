@@ -41,27 +41,13 @@
                 "sysid": "0xd1c",
                 "sysname": "Conifer Mountain CO DTRS",
                 "control_channel_list": "853.5875,853.9125",
-                "whitelist": "",
+                "whitelist": "genesee.wl",
                 "blacklist": "",
-                "tgid_tags_file": "genesee.tsv",
-                "rid_tags_file": "rids.tsv",
-                "tdma_cc": false,
-                "crypt_behavior": 0
-            },
-            {
-                "nac": "0xd16",
-                "wacn": "0xbee07",
-                "sysid": "0xd1c",
-                "sysname": "Mestaa’ehehe CO DTRS",
-                "control_channel_list": "853.450,853.850,853.6125",
-                "whitelist": "",
-                "blacklist": "",
-                "tgid_tags_file": "genesee.tsv",
+                "tgid_tags_file": "co_dtrs.tsv",
                 "rid_tags_file": "rids.tsv",
                 "tdma_cc": false,
                 "crypt_behavior": 0
             }
-
         ]
     },
     "audio": {
