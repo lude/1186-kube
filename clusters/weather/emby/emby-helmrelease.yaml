@@ -38,16 +38,10 @@ spec:
       #      - chart-example.local
 
     persistence:
-      # -- enable persistence?
-      enabled: false
-      # -- existing claim
-      existingClaim:
-      # -- desired storageClass
-      storageClass:
-      # -- storage access mode
+      enabled: true
+      storageClass: local-storage
       accessMode: ReadWriteOnce
-      # -- storage size
-      size: 20Gi
+      size: 50Gi
 
     nodeSelector:
       kubernetes.io/hostname: avalanche
