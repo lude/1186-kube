@@ -14,7 +14,7 @@ spec:
     type: ""
   claimRef:
     namespace: traefik
-    name: traefik-data
+    name: traefik-traefik
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   volumeMode: Filesystem
