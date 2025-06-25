@@ -103,7 +103,14 @@ spec:
       adminUser: admin
       adminPassword: prom-operator
       ingress:
-        enabled: false
+        enabled: true
+        ingressClassName: traefik-traefik
+        annotations:
+          traefik.ingress.kubernetes.io/router.tls: "true"
+          traefik.ingress.kubernetes.io/router.tls.certresolver: letsencrypt
+        hosts:
+        - grafana.lude.net
+        path: /
     kubernetesServiceMonitors:
       enabled: true
     kubeApiServer:
