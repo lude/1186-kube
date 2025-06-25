@@ -41,7 +41,7 @@ spec:
     redis-cluster:
       enabled: false
     redis:
-      enabled: true
+      enabled: false
     valkey-cluster:
       enabled: true
       cluster:
