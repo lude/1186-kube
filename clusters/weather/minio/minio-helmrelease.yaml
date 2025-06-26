@@ -12,7 +12,7 @@ spec:
       chart: minio
       sourceRef:
         kind: HelmRepository
-        name: truecharts
+        name: bitnami-oci
       interval: 5m
   releaseName: minio
   targetNamespace: minio
