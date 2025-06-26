@@ -22,7 +22,9 @@ spec:
     nodeSelector:
       kubernetes.io/hostname: avalanche
     persistence:
-      enabled: false
+      enabled: true
+      storageClass: local-storage
+      volumeName: gitea-shared-storage
     gitea:
       objectStorage:
         type: "s3"
