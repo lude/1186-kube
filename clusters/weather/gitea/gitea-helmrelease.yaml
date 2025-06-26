@@ -42,6 +42,7 @@ spec:
         packages:
           ENABLED: true
         storage:
+          STORAGE_TYPE: minio
           MINIO_ENDPOINT: minio.minio:9000
           #MINIO_LOCATION: <location>
           #MINIO_ACCESS_KEY_ID: <access key>
