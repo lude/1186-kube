@@ -34,6 +34,8 @@ spec:
           USER: gitea_user
           PASSWD: WLUJdw3fNhGS
           SCHEMA: gitea
+        packages:
+          ENABLED: true
     postgresql:
       enabled: false
     postgresql-ha:
