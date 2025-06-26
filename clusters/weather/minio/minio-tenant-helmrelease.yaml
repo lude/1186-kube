@@ -20,12 +20,12 @@ spec:
     tenant:
       name: storage
       pools:
-        - servers: 1
-          name: pool-0
-          volumesPerServer: 1
-          size: 10Gi
-          nodeSelector:
-            kubernetes.io/hostname: avalanche
+      - servers: 1
+        name: storage-pool-0
+        volumesPerServer: 1
+        size: 10Gi
+        nodeSelector:
+          kubernetes.io/hostname: avalanche
     ingress:
       api:
         enabled: true
