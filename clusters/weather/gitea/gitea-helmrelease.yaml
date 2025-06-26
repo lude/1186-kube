@@ -41,6 +41,8 @@ spec:
           SCHEMA: gitea
         packages:
           ENABLED: true
+        lfs:
+          STORAGE_TYPE: minio
         storage:
           STORAGE_TYPE: minio
           MINIO_ENDPOINT: minio.minio:9000
