@@ -43,6 +43,7 @@ spec:
           ENABLED: true
         lfs:
           STORAGE_TYPE: minio
+          MINIO_BASE_PATH: lfs/
         storage:
           STORAGE_TYPE: minio
           MINIO_ENDPOINT: minio.minio:9000
