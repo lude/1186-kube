@@ -21,6 +21,7 @@ spec:
           kubernetes.io/hostname: blizzard
         storage:
           enabled: true
+          storageClassName: local-storage
           existingVolume: zigbee2mqtt-data
       zigbee2mqtt:
         homeassistant:
