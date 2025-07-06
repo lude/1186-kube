@@ -1,0 +1,59 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+    name: zigbee2mqtt
+    namespace: flux-system
+spec:
+    interval: 5m
+    targetNamespace: zigbee2mqtt
+    chart:
+        spec:
+            chart: zigbee2mqtt
+            version: '1.37.1'
+            sourceRef:
+                kind: HelmRepository
+                name: zigbee2mqtt
+                namespace: flux-system
+            interval: 10m
+    values:
+      statefulset:
+        nodeSelector:
+          kubernetes.io/hostname: blizzard
+        storage:
+          enabled: true
+          existingVolume: zigbee2mqtt-data
+      zigbee2mqtt:
+        homeassistant:
+          enabled: false
+        mqtt:
+          base_topic: zigbee2mqtt
+          server: mqtt://172.16.10.10:1883
+          keepalive: 60
+          reject_unauthorized: true
+          version: 4
+        serial:
+          port: tcp://172.16.11.152:6638
+          baudrate: 115200
+          adapter: zstack
+          disable_led: false
+        advanced:
+          transmit_power: 20
+          pan_id: 6755
+        frontend:
+          enabled: true
+          port: 8080
+          host: 0.0.0.0
+        version: 4
+        devices:
+          '0x00124b0021f1f916':
+            friendly_name: Dave's Reading Light
+          '0x00124b0021f1f93a':
+            friendly_name: Michelle's Reading Light
+          '0xb0ce18140352ea66':
+            friendly_name: Porch LH Light
+          '0xb0ce18140352e845':
+            friendly_name: Porch RH Light
+          '0xb0ce18140352eb4c':
+            friendly_name: Driveway LH Light
+          '0xb0ce18140352f370':
+            friendly_name: Driveway RH Light
