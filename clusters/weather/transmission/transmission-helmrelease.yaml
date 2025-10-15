@@ -26,8 +26,8 @@ spec:
       TZ: UTC
     image:
       pullPolicy: IfNotPresent
-      repository: ghcr.io/k8s-at-home/transmission
-      tag: v3.00
+      repository: lscr.io/linuxserver/transmission
+      tag: 4.0.6
     ingress:
       main:
         enabled: false
