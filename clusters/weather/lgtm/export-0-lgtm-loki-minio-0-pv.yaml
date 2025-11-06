@@ -11,7 +11,7 @@ spec:
     storage: 5Gi
   hostPath:
     path: /storage/kubernetes/lgtm/export-0-lgtm-loki-minio-0
-    type: ""
+    type: DirectoryOrCreate
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   volumeMode: Filesystem
