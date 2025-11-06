@@ -12,6 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: lgtm
+      version: 6.44.0
   targetNamespace: lgtm
   install:
     createNamespace: true
