@@ -1,0 +1,176 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: minio
+  namespace: flux-system
+spec:
+  interval: 10m
+  timeout: 5m
+  chart:
+    spec:
+      chart: minio
+      sourceRef:
+        kind: HelmRepository
+        name: cloudpirates
+      interval: 5m
+  releaseName: minio
+  targetNamespace: minio
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
+  values:
+    config:
+      ## @param config.region MinIO server default region
+      region: ""
+      ## @param config.browserEnabled Enable MinIO web browser
+      browserEnabled: true
+      ## @param config.domain MinIO server domain
+      domain: ""
+      ## @param config.serverUrl MinIO server URL for console
+      serverUrl: ""
+      ## @param config.minioOpts String of parameteres to use when starting the MinIO Server (example: '--console-address=":9001"')
+      minioOpts: ""
+      ## @param config.minioVolumes The directories or drives the minio server uses as the storage backend (example: '/mnt/drive1/minio')
+      minioVolumes: ""
+      ## @param config.minioConfigEnvFile Specifies the full path to the file the MinIO server process uses for loading environment variables
+      minioConfigEnvFile: ""
+      ## @param config.minioScannerSpeed Manage the maximum wait period for the scanner when balancing MinIO read/write performance to scanner processes (fastest, fast, default, slow, slowest)
+      minioScannerSpeed: ""
+      ## @param config.minioCompressionEnabled Set to on to enable data compression for new objects. Defaults to off.
+      minioCompressionEnabled: ""
+      ## @param config.minioCompressionAllowEncryption Set to on to encrypt objects after compressing them. Defaults to off.
+      minioCompressionAllowEncryption: ""
+      ## @param config.minioCompressionExtensions Comma-separated list of the file extensions to compress. Setting a new list of file extensions replaces the previously configured list. Defaults to "*"
+      minioCompressionExtensions: ""
+      ## @param config.minioCompressionMimeTypes Comma-separated list of the MIME types to compress. Setting a new list of types replaces the previously configured list. Defaults to "text/*, application/json, application/xml, binary/octet-stream"
+      minioCompressionMimeTypes: ""
+
+      ## @param config.extraEnvVars Extra environment variables to be set on MinIO containers
+      extraEnvVars: []
+
+    ## @section Bucket provisioning
+    ## @param defaultBuckets Comma, semi-colon or space separated list of buckets to create at initialization
+    ## Format: "bucket-name" or "bucket-name:policy" where policy can be: none, download, upload, or public
+    ## e.g: "my-bucket, my-second-bucket:download, my-public-bucket:public"
+    defaultBuckets: ""
+
+    replicaCount: 1
+
+    containerSecurityContext:
+      ## @param containerSecurityContext.allowPrivilegeEscalation Enable container privilege escalation
+      allowPrivilegeEscalation: false
+      ## @param containerSecurityContext.runAsNonRoot Configure the container to run as a non-root user
+      runAsNonRoot: true
+      ## @param containerSecurityContext.runAsUser User ID for the MinIO container
+      runAsUser: 1001
+      ## @param containerSecurityContext.runAsGroup Group ID for the MinIO container
+      runAsGroup: 1001
+      ## @param containerSecurityContext.readOnlyRootFilesystem Mount container root filesystem as read-only
+      readOnlyRootFilesystem: true
+      ## @param containerSecurityContext.capabilities.drop Linux capabilities to be dropped
+      capabilities:
+        drop:
+          - ALL
+
+    ## @section Service configuration
+    service:
+      ## @param service.type MinIO service type
+      type: ClusterIP
+      ## @param service.port MinIO service port
+      port: 9000
+      ## @param service.consolePort MinIO console service port
+      consolePort: 9090
+      ## @param service.annotations Service annotations
+      annotations: {}
+      ## @param service.nodePorts Service node ports
+      nodePorts:
+        ## @param service.nodePorts.api Service api node port
+        api: ""
+        ## @param service.nodePorts.api Service console node port
+        console: ""
+
+    ## @section Ingress configuration
+    ingress:
+      ## @param ingress.enabled Enable ingress record generation for MinIO
+      enabled: false
+      ## @param ingress.className IngressClass that will be used to implement the Ingress
+      className: ""
+      ## @param ingress.annotations Additional annotations for the Ingress resource
+      annotations:
+        {}
+        # kubernetes.io/ingress.class: nginx
+        # kubernetes.io/tls-acme: "true"
+      ## @param ingress.hosts[0].host Hostname for MinIO ingress
+      ## @param ingress.hosts[0].paths[0].path Path for MinIO ingress
+      ## @param ingress.hosts[0].paths[0].pathType Path type for MinIO ingress
+      hosts:
+        - host: minio.local
+          paths:
+            - path: /
+              pathType: Prefix
+      ## @param ingress.tls TLS configuration for MinIO ingress
+      tls: []
+      #  - secretName: minio-tls
+      #    hosts:
+      #      - minio.local
+
+    ## @section Console Ingress configuration
+    consoleIngress:
+      ## @param consoleIngress.enabled Enable ingress record generation for MinIO Console
+      enabled: false
+      ## @param consoleIngress.className IngressClass that will be used to implement the Ingress
+      className: ""
+      ## @param consoleIngress.annotations Additional annotations for the Console Ingress resource
+      annotations:
+        {}
+        # nginx.ingress.kubernetes.io/proxy-body-size: 1000m
+      ## @param consoleIngress.hosts[0].host Hostname for MinIO Console ingress
+      ## @param consoleIngress.hosts[0].paths[0].path Path for MinIO Console ingress
+      ## @param consoleIngress.hosts[0].paths[0].pathType Path type for MinIO Console ingress
+      hosts:
+        - host: minio-console.local
+          paths:
+            - path: /
+              pathType: Prefix
+      ## @param consoleIngress.tls TLS configuration for MinIO Console ingress
+      tls: []
+
+    ## @section Resources
+    resources:
+      {}
+      ## We usually recommend not to specify default resources and to leave this as a conscious
+      ## choice for the user. This also increases chances charts run on environments with little
+      ## resources, such as Minikube. If you do want to specify resources, uncomment the following
+      ## lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+      # limits:
+      #   cpu: 100m
+      #   memory: 128Mi
+      # requests:
+      #   cpu: 100m
+      #   memory: 128Mi
+
+    ## @section Persistence
+    persistence:
+      ## @param persistence.enabled Enable persistence using Persistent Volume Claims
+      enabled: true
+      ## @param persistence.storageClass Persistent Volume storage class
+      storageClass: ""
+      ## @param persistence.annotations Persistent Volume Claim annotations
+      annotations: {}
+      ## @param persistence.size Persistent Volume size
+      size: 8Gi
+      ## @param persistence.accessModes Persistent Volume access modes
+      accessModes:
+        - ReadWriteOnce
+      ## @param persistence.existingClaim The name of an existing PVC to use for persistence
+      existingClaim: ""
+      ## @param mountPath The path where to mount the data volume
+      mountPath: /mnt/data
+
+    nodeSelector:
+      kubernetes.io/hostname: avalanche
