@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  finalizers:
+  - kubernetes.io/pv-protection
+  name: kafka-data-lgtm-mimir-kafka-0
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 10Gi
+  hostPath:
+    path: /storage/kubernetes/lgtm/kafka-data-lgtm-mimir-kafka-0
+    type: DirectoryOrCreate
+  claimRef:
+     namespace: lgtm
+     name: kafka-data-lgtm-mimir-kafka-0
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  volumeMode: Filesystem

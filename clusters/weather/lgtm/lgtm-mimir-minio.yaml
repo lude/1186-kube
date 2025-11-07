@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  finalizers:
+  - kubernetes.io/pv-protection
+  name: lgtm-mimir-minio
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 10Gi
+  hostPath:
+    path: /storage/kubernetes/lgtm/lgtm-mimir-minio
+    type: DirectoryOrCreate
+  claimRef:
+     namespace: lgtm
+     name: lgtm-mimir-minio
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  volumeMode: Filesystem
