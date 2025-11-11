@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app.kubernetes.io/name: tonesdetector-vhf-go
+  name: tonesdetector-vhf-go
+  namespace: tonesdetector
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: tonesdetector-vhf-go
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: tonesdetector-vhf-go
+    spec:
+      containers:
+      - image: lude/tonesdetector-go:latest
+        imagePullPolicy: Always
+        name: tonesdetector
+      nodeSelector:
+        kubernetes.io/hostname: blizzard
+      restartPolicy: Always
