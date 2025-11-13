@@ -12,7 +12,7 @@ metadata:
 spec:
   ingressClassName: traefik-traefik
   rules:
-  - host: airplayer.lude.net
+  - host: firenw.lude.net
     http:
       paths:
       - backend:
