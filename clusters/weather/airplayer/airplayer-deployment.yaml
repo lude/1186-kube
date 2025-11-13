@@ -21,7 +21,8 @@ spec:
         imagePullPolicy: Always
         name: airplayer
         env:
-          VITE_WS_URL: ws://localhost:8080/ws?offset=earliest
+        - name: VITE_WS_URL
+          value: ws://localhost:8080/ws?offset=earliest
         ports:
         - containerPort: 80
           name: airplayer
