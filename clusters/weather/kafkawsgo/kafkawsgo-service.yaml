@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/name: kafkawsgo
+  name: kafkawsgo
+  namespace: kafkawsgo
+spec:
+  ports:
+  - name: kafkawsgo
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app.kubernetes.io/name: kafkawsgo
+  type: ClusterIP
