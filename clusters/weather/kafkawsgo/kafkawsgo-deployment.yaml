@@ -17,8 +17,11 @@ spec:
         app.kubernetes.io/name: kafkawsgo
     spec:
       containers:
-      - env:
-        KAFKA_BROKERS: kafka-kafka-bootstrap.strimzi:9092
+      - args:
+        - -brokers
+        - kafka-kafka-bootstrap.strimzi:9092
+        - -topic
+        - audio-buffer-dtrs
         image: lude/kafkawsgo:latest
         imagePullPolicy: Always
         name: kafkawsgo
