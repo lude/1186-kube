@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  finalizers:
+  - kubernetes.io/pv-protection
+  name: actualbudget-volume
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 5Gi
+  hostPath:
+    path: /storage/kubernetes/actualbudget/actualbudget-volume
+    type: DirectoryOrCreate
+  claimRef:
+    namespace: actualbudget
+    name: actualbudget-volume
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  volumeMode: Filesystem
