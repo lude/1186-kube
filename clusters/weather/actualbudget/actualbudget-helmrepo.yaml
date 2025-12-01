@@ -6,4 +6,4 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h
-  url: https://community-charts.gihub.io/helm-charts
+  url: https://community-charts.github.io/helm-charts
