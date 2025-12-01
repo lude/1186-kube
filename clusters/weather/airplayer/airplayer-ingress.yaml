@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.tls.certresolver: letsencrypt
+  generation: 1
+  labels:
+    app.kubernetes.io/name: airplayer
+  name: airplayer
+  namespace: airplayer
+spec:
+  ingressClassName: traefik-traefik
+  rules:
+  - host: firenw.lude.net
+    http:
+      paths:
+      - backend:
+          service:
+            name: airplayer
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+status:
+  loadBalancer:
+    ingress:
+    - ip: 172.16.10.8
+      ports:
+      - port: 80
+        protocol: TCP
+      - port: 443
+        protocol: TCP

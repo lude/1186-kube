@@ -21,7 +21,7 @@
     ], 
     "devices": [
         {
-            "args": "rtl=1",
+            "args": "rtl=0",
             "gains": "LNA:36",
             "gain_mode": false,
             "name": "sdr0",

@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app.kubernetes.io/name: kafkawsgo
+  name: kafkawsgo
+  namespace: kafkawsgo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: kafkawsgo
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: kafkawsgo
+    spec:
+      containers:
+      - args:
+        - -brokers
+        - kafka-kafka-bootstrap.strimzi:9092
+        - -topic
+        - audio-buffer-dtrs
+        image: lude/kafkawsgo:latest
+        imagePullPolicy: Always
+        name: kafkawsgo
+        ports:
+        - containerPort: 8080
+          name: kafkawsgo
+          protocol: TCP
+      nodeSelector:
+        kubernetes.io/hostname: blizzard
+      restartPolicy: Always

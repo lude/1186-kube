@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app.kubernetes.io/name: airplayer
+  name: airplayer
+  namespace: airplayer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: airplayer
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: airplayer
+    spec:
+      containers:
+      - image: lude/airplayer:latest
+        imagePullPolicy: Always
+        name: airplayer
+        env:
+        - name: VITE_WS_URL
+          value: ws://localhost:8080/ws?offset=earliest
+        ports:
+        - containerPort: 80
+          name: airplayer
+          protocol: TCP
+      nodeSelector:
+        kubernetes.io/hostname: blizzard
+      restartPolicy: Always
