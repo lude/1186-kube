@@ -1,4 +1,4 @@
-apiVersion: kafka.strimzi.io/v1beta2
+apiVersion: kafka.strimzi.io/v1
 kind: Kafka
 metadata:
   name: kafka
@@ -6,6 +6,7 @@ metadata:
 spec:
   kafka:
     version: 4.1.1
+    metadataVersion: 4.1
     replicas: 1
     listeners:
       - name: plain
@@ -18,6 +19,7 @@ spec:
         tls: true
     config:
       offsets.topic.replication.factor: 1
+      auto.create.topics.enable: "true"
       transaction.state.log.replication.factor: 1
       transaction.state.log.min.isr: 1
       default.replication.factor: 1
@@ -30,26 +32,6 @@ spec:
       class: local-storage
       selector:
         name: kafka-kafka-0
-    template:
-      pod:
-        affinity:
-          nodeAffinity:
-            requiredDuringSchedulingIgnoredDuringExecution:
-              nodeSelectorTerms:
-                - matchExpressions:
-                  - key: kubernetes.io/hostname
-                    operator: In
-                    values:
-                    - avalanche
-  zookeeper:
-    replicas: 1
-    storage:
-      type: persistent-claim
-      size: 100Gi
-      deleteClaim: false
-      class: local-storage
-      selector:
-        name: kafka-zookeeper-0
     template:
       pod:
         affinity:
