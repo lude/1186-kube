@@ -13,8 +13,8 @@ spec:
     path: /storage/kubernetes/lgtm/lgtm-mimir-minio
     type: DirectoryOrCreate
   claimRef:
-     namespace: lgtm
-     name: lgtm-mimir-minio
+    namespace: lgtm
+    name: lgtm-mimir-minio
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   volumeMode: Filesystem

@@ -13,8 +13,8 @@ spec:
     path: /storage/kubernetes/lgtm/storage-lgtm-mimir-store-gateway-zone-b-0
     type: DirectoryOrCreate
   claimRef:
-     namespace: lgtm
-     name: storage-lgtm-mimir-store-gateway-zone-b-0
+    namespace: lgtm
+    name: storage-lgtm-mimir-store-gateway-zone-b-0
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   volumeMode: Filesystem

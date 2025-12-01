@@ -10,8 +10,11 @@ spec:
   capacity:
     storage: 50Gi
   hostPath:
-    path: /storage/kubernetes/homebridge/homebridge
-    type: ""
+    path: /storage/kubernetes/homebridge/homebridge-data
+    type: DirectoryOrCreate
+  claimRef:
+    namespace: homebridge
+    name: homebridge-data
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   volumeMode: Filesystem

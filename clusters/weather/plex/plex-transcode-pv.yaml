@@ -10,8 +10,11 @@ spec:
   capacity:
     storage: 50Gi
   hostPath:
-    path: /storage/kubernetes/plex/plex/transcode
-    type: ""
+    path: /storage/kubernetes/plex/plex-transcode
+    type: DirectoryOrCreate
+  claimRef:
+    namespace: plex
+    name: plex-transcode
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   volumeMode: Filesystem

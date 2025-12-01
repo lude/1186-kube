@@ -11,7 +11,10 @@ spec:
     storage: 50Gi
   hostPath:
     path: /storage/kubernetes/zigbee2mqtt/data
-    type: ""
+    type: ''
+  claimRef:
+    namespace: zigbee2mqtt
+    name: data-volume-zigbee2mqtt-zigbee2mqtt-0
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   volumeMode: Filesystem

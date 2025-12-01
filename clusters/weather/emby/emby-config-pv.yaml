@@ -10,8 +10,11 @@ spec:
   capacity:
     storage: 50Gi
   hostPath:
-    path: /storage/kubernetes/emby/
-    type: ""
+    path: /storage/kubernetes/emby/emby-emby-config
+    type: DirectoryOrCreate
+  claimRef:
+    namespace: emby
+    name: emby-emby-config
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   volumeMode: Filesystem

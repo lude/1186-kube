@@ -9,12 +9,12 @@ spec:
   - ReadWriteOnce
   capacity:
     storage: 100Gi
+  hostPath:
+    path: /storage/kubernetes/scrypted/scrypted-media
+    type: DirectoryOrCreate
   claimRef:
     namespace: scrypted
     name: scrypted-media
-  hostPath:
-    path: /storage/kubernetes/scrypted/media
-    type: ""
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   volumeMode: Filesystem

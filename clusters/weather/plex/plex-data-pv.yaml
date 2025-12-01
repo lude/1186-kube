@@ -10,8 +10,11 @@ spec:
   capacity:
     storage: 50Gi
   hostPath:
-    path: /storage/kubernetes/plex/plex/data
-    type: ""
+    path: /storage/kubernetes/plex/plex-data
+    type: DirectoryOrCreate
+  claimRef:
+    namespace: plex
+    name: plex-data
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   volumeMode: Filesystem

@@ -13,8 +13,8 @@ spec:
     path: /storage/kubernetes/lgtm/storage-lgtm-loki-0
     type: DirectoryOrCreate
   claimRef:
-     namespace: lgtm
-     name: storage-lgtm-loki-0
+    namespace: lgtm
+    name: storage-lgtm-loki-0
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   volumeMode: Filesystem

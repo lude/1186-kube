@@ -8,10 +8,10 @@ spec:
   accessModes:
   - ReadWriteOnce
   capacity:
-    storage: 50Gi
+    storage: 8Gi
   hostPath:
-    path: /storage/kubernetes/traefik/traefik
-    type: ""
+    path: /storage/kubernetes/traefik/traefik-traefik
+    type: DirectoryOrCreate
   claimRef:
     namespace: traefik
     name: traefik-traefik

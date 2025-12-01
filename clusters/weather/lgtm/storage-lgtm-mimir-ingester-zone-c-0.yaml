@@ -13,8 +13,8 @@ spec:
     path: /storage/kubernetes/lgtm/storage-lgtm-mimir-ingester-zone-c-0
     type: DirectoryOrCreate
   claimRef:
-     namespace: lgtm
-     name: storage-lgtm-mimir-ingester-zone-c-0
+    namespace: lgtm
+    name: storage-lgtm-mimir-ingester-zone-c-0
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   volumeMode: Filesystem

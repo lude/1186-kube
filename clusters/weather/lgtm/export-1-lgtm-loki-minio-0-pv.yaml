@@ -13,8 +13,8 @@ spec:
     path: /storage/kubernetes/lgtm/export-1-lgtm-loki-minio-0
     type: DirectoryOrCreate
   claimRef:
-     namespace: lgtm
-     name: export-1-lgtm-loki-minio-0
+    namespace: lgtm
+    name: export-1-lgtm-loki-minio-0
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   volumeMode: Filesystem

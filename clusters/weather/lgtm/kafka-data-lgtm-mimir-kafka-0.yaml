@@ -13,8 +13,8 @@ spec:
     path: /storage/kubernetes/lgtm/kafka-data-lgtm-mimir-kafka-0
     type: DirectoryOrCreate
   claimRef:
-     namespace: lgtm
-     name: kafka-data-lgtm-mimir-kafka-0
+    namespace: lgtm
+    name: kafka-data-lgtm-mimir-kafka-0
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   volumeMode: Filesystem

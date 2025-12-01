@@ -3,18 +3,18 @@ kind: PersistentVolume
 metadata:
   finalizers:
   - kubernetes.io/pv-protection
-  name: transmission-downloads
+  name: actualbudget-volume
 spec:
   accessModes:
   - ReadWriteOnce
   capacity:
-    storage: 50Gi
+    storage: 5Gi
   hostPath:
-    path: /storage/kubernetes/transmission/transmission-downloads
+    path: /storage/kubernetes/actualbudget/actualbudget-volume
     type: DirectoryOrCreate
   claimRef:
-    namespace: transmission
-    name: transmission-downloads
+    namespace: actualbudget
+    name: actualbudget-volume
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   volumeMode: Filesystem

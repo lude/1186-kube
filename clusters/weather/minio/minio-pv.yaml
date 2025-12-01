@@ -8,10 +8,13 @@ spec:
   accessModes:
   - ReadWriteOnce
   capacity:
-    storage: 8Gi
+    storage: 50Gi
   hostPath:
-    path: /storage/kubernetes/minio/
-    type: ""
+    path: /storage/kubernetes/minio/minio
+    type: DirectoryOrCreate
+  claimRef:
+    namespace: minio
+    name: minio
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   volumeMode: Filesystem

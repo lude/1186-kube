@@ -10,8 +10,11 @@ spec:
   capacity:
     storage: 50Gi
   hostPath:
-    path: /storage/kubernetes/transmission/transmission/config
-    type: ""
+    path: /storage/kubernetes/transmission/transmission-config
+    type: DirectoryOrCreate
+  claimRef:
+    namespace: transmission
+    name: transmission-config
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   volumeMode: Filesystem
