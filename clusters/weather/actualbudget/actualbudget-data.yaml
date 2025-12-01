@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   finalizers:
   - kubernetes.io/pv-protection
-  name: actualbudget-actualbudget/data
+  name: actualbudget-actualbudget-data
 spec:
   accessModes:
   - ReadWriteOnce
