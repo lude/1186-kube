@@ -26,6 +26,10 @@ spec:
 
     ingress:
       enabled: true
+      className: traefik-traefik
+      annotations:
+        traefik.ingress.kubernetes.io/router.tls: "true"
+        traefik.ingress.kubernetes.io/router.tls.certresolver: letsencrypt
       hosts:
         - host: budget.lude.net
           paths:
