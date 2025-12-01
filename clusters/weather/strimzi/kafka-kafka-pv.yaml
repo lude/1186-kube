@@ -3,18 +3,18 @@ kind: PersistentVolume
 metadata:
   finalizers:
   - kubernetes.io/pv-protection
-  name: minio
+  name: kafka-kafka-0
 spec:
   accessModes:
   - ReadWriteOnce
   capacity:
-    storage: 50Gi
+    storage: 100Gi
   hostPath:
-    path: /storage/kubernetes/minio/minio
+    path: /storage/kubernetes/strimzi/data-kafka-kafka-0
     type: DirectoryOrCreate
   claimRef:
-    namespace: minio
-    name: minio
+    namespace: strimzi
+    name: data-kafka-kafka-0
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   volumeMode: Filesystem
