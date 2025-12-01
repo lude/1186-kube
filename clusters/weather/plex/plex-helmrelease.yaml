@@ -1,0 +1,106 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: plex
+  namespace: flux-system
+spec:
+  chart:
+    spec:
+      chart: plex
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+  targetNamespace: plex
+  install:
+    createNamespace: true
+  interval: 10m
+  values:
+    claimToken: claim-MzGi5aUByXTzC7GU3YMf
+    env:
+      CLAIM_TOKEN: claim-MzGi5aUByXTzC7GU3YMf
+      PLEX_CLAIM: claim-MzGi5aUByXTzC7GU3YMf
+      ADVERTISE_IP: http://172.16.10.5:32400/
+    hostNetwork: false
+    image:
+      pullPolicy: IfNotPresent
+      repository: plexinc/pms-docker
+      tag: 1.41.5.9522-a96edc606
+    nodeSelector:
+      kubernetes.io/hostname: avalanche
+    resources:
+      requests:
+        cpu: 100m
+        memory: 512Mi
+    persistence:
+      config:
+        accessMode: ReadWriteOnce
+        claimName: plex-config
+        enabled: true
+        existingClaim: plex-config
+        size: 50Gi
+      data:
+        accessMode: ReadWriteOnce
+        claimName: plex-data
+        enabled: true
+        existingClaim: plex-data
+        size: 50Gi
+      transcode:
+        accessMode: ReadWriteOnce
+        claimName: plex-transcode
+        enabled: true
+        existingClaim: plex-transcode
+        size: 50Gi
+    plexPreferences:
+      configmap:
+        annotations: {}
+        labels: {}
+        name: 41-plex-preferences
+      enabled: false
+      volume:
+        defaultMode: 493
+        mountPath: /etc/cont-init.d/41-plex-preferences
+        name: 41-plex-preferences
+        subPath: 41-plex-preferences
+    podAnnotations: {}
+    podSecurityContext: {}
+    probes:
+      liveness:
+        enabled: true
+        failureThreshold: 5
+        httpGet:
+          path: /identity
+          port: 32400
+        periodSeconds: 10
+      readiness:
+        enabled: true
+        failureThreshold: 5
+        httpGet:
+          path: /identity
+          port: 32400
+        periodSeconds: 10
+      startup:
+        enabled: true
+        failureThreshold: 30
+        httpGet:
+          path: /identity
+          port: 32400
+        initialDelaySeconds: 5
+        periodSeconds: 10
+    proxy:
+      enabled: false
+    securityContext: {}
+    service:
+      main:
+        ports:
+          http:
+            enabled: true
+            nodePort: 32400
+            port: 32400
+        primary: true
+        type: NodePort
+    strategyType: Recreate
+    timezone: UTC
+    tolerations: []
+
