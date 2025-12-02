@@ -2,8 +2,9 @@ apiVersion: kafka.strimzi.io/v1
 kind: KafkaNodePool
 metadata:
   name: dual-role
+  namespace: strimzi
   labels:
-    strimzi.io/cluster: my-cluster
+    strimzi.io/cluster: kafka
 spec:
   replicas: 1
   roles:
@@ -26,6 +27,7 @@ apiVersion: kafka.strimzi.io/v1
 kind: Kafka
 metadata:
   name: kafka
+  namespace: strimzi
 spec:
   kafka:
     version: 4.1.1
