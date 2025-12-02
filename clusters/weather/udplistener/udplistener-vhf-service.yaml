@@ -13,4 +13,6 @@ spec:
     targetPort: 23457
   selector:
     app.kubernetes.io/name: udplistener-vhf
+  externalIPs:
+  - 172.16.10.8
   type: ClusterIP
