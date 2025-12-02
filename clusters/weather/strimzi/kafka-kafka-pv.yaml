@@ -14,7 +14,7 @@ spec:
     type: DirectoryOrCreate
   claimRef:
     namespace: strimzi
-    name: data-kafka-kafka-0
+    name: data-0-kafka-kafka-0
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   volumeMode: Filesystem
